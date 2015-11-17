@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+plugins {
+    id "com.jfrog.bintray" version "1.4"
+}
+
+apply plugin: 'groovy'
+group = 'wtf.cowbay.gradlewebp'
+version = '1.0'
+
+apply plugin: 'maven-publish'
+
+dependencies {
+    repositories {
+        mavenCentral()
+    }
+
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:1.0.+'
+}
+
+
+bintray {
+    user = bintray_user
+    key = bintray_api_key
+
+    publications = ['main']
+
+    dryRun = false
+    publish = false 
+
+    pkg {
+        repo = 'maven'
+        name = 'gradle-android-webp'
+        desc = 'Plugin for Android Gradle to automatically covert PNG resources to WEBP.'
+        websiteUrl = 'https://github.com/julianshen/gradle-android-webp'
+        issueTrackerUrl = 'https://github.com/julianshen/gradle-android-webp'
+        vcsUrl = 'https://github.com/splatte/gradle-android-webp'
+        licenses = ['Apache-2.0']
+        labels = ['android', 'gradle', 'app', 'webp', 'build']
+        publicDownloadNumbers = false
+
+        version {
+            name = '1.0'
+        }
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar, javadocJar
+}
+
+publishing {
+    publications {
+        main(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
