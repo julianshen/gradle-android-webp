@@ -16,7 +16,7 @@ repositories {
 }
 ```
 2. Also add dependency in your Android project's top-level `build.gradle` file:
- ```groovy
+```groovy
 buildscript {
     dependencies {
         classpath "wtf.cowbay.gradlewebp:gradle-android-webp:1.0"
