@@ -7,15 +7,7 @@ This is a plugin for Android Gradle to automatically covert PNG resources to WEB
 This plugin requires WEBP command line utility ```cwebp```. Download and install it from [WEBP](https://developers.google.com/speed/webp/). Make sure ```cwebp``` is in your path.
 
 ## Usage
-1. Maven url of this plugin is: "http://dl.bintray.com/julianshen/maven". Add repository setting in your Android project's top-level `build.gradle` file:
-```groovy
-repositories {
-    maven {
-        url  "http://dl.bintray.com/julianshen/maven" 
-    }
-}
-```
-2. Also add dependency in your Android project's top-level `build.gradle` file:
+1. This plugin is published on JCenter. Add dependency in your Android project's top-level `build.gradle` file:
 ```groovy
 buildscript {
     dependencies {
