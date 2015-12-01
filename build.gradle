@@ -40,7 +40,7 @@ bintray {
         desc = 'Plugin for Android Gradle to automatically covert PNG resources to WEBP.'
         websiteUrl = 'https://github.com/julianshen/gradle-android-webp'
         issueTrackerUrl = 'https://github.com/julianshen/gradle-android-webp'
-        vcsUrl = 'https://github.com/splatte/gradle-android-webp'
+        vcsUrl = 'https://github.com/julianshen/gradle-android-webp'
         licenses = ['Apache-2.0']
         labels = ['android', 'gradle', 'app', 'webp', 'build']
         publicDownloadNumbers = false
